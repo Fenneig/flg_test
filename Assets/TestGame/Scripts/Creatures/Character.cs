@@ -21,7 +21,7 @@ namespace TestGame.Scripts.Creatures
 
         protected Vector3 MoveDirection => _isRight ? Vector3.right : Vector3.left;
         
-        private void Start()
+        protected virtual void Start()
         {
             _skeletonAnimation.AnimationState.SetAnimation(0, _runAnimation, true);
             _skeletonAnimation.AnimationState.Event += HandleAnimationState;

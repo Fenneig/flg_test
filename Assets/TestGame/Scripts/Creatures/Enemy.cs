@@ -3,16 +3,29 @@ using Spine;
 using TestGame.Scripts.Interfaces;
 using UnityEngine;
 using Event = Spine.Event;
+using Random = UnityEngine.Random;
 
 namespace TestGame.Scripts.Creatures
 {
     public class Enemy : Character
     {
-        [Header("Attack settings")] 
+        [Header("Attack settings"), Space] 
         [SerializeField] private Collider2D _attackZone;
+
+        [Header("Layer settings"), Space] 
+        [SerializeField] private int _minSortingOrder = 60;
+        [SerializeField] private int _maxSortingOrder = 90;
         protected override void HandleAnimationState(TrackEntry trackentry, Event e)
         {
             Debug.Log($"Enemy animation get {e.Data.Name} state");
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+
+            _skeletonAnimation.GetComponent<MeshRenderer>().sortingOrder =
+                Random.Range(_minSortingOrder, _maxSortingOrder);
         }
 
         protected override void Update()

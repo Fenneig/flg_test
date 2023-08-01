@@ -119,7 +119,7 @@ MonoBehaviour:
   _skeletonAnimation: {fileID: 5353143645133961420}
   _runAnimation: run
   _attackAnimation: shoot
-  _speed: 10
+  _speed: 3
   _isRight: 1
   _foeLayerMask:
     serializedVersion: 2
@@ -200,7 +200,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1783100669
   m_SortingLayer: -2
-  m_SortingOrder: 90
+  m_SortingOrder: 91
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &5353143645133961420
 MonoBehaviour:
