@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2017990170}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GunBarrel
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2017990169}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.3, y: 1.34, z: 0}
+  m_LocalPosition: {x: 2, y: 1.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 5353143643998780054}
   - component: {fileID: 5353143643998780055}
   - component: {fileID: 5353143643998780057}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 5353143644147707841}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -98,7 +98,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.047842026, y: 2.1409447}
@@ -118,10 +118,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skeletonAnimation: {fileID: 5353143645133961420}
   _runAnimation: run
-  _shootAnimation: shoot
-  _barrelTransform: {fileID: 0}
-  _bulletPrefab: {fileID: 0}
+  _attackAnimation: shoot
   _speed: 3
+  _isRight: 1
+  _foeLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  _barrelTransform: {fileID: 2017990170}
+  _lightningPrefab: {fileID: 6044044694858410392, guid: 3ae8ae13445c3a74d8ab1816e20589e8, type: 3}
 --- !u!1 &5353143645133961410
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +138,7 @@ GameObject:
   - component: {fileID: 5353143645133961421}
   - component: {fileID: 5353143645133961420}
   - component: {fileID: 5353143645133961422}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}

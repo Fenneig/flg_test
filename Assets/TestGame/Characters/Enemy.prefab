@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 694727448755709502}
   - component: {fileID: 694727448755709501}
   - component: {fileID: 694727448755709500}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 694727449533333547}
-  m_Layer: 0
+  - component: {fileID: 8062365682919424103}
+  - component: {fileID: 1878507553}
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,3 +158,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &8062365682919424103
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694727449533333546}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.3984337, y: 2.2220345}
+  m_Size: {x: 2.9519005, y: 5.444069}
+  m_Direction: 0
+--- !u!114 &1878507553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694727449533333546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fbfd405f7c44dd6b653be3a385c17e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _skeletonAnimation: {fileID: 694727448755709501}
+  _runAnimation: run
+  _attackAnimation: angry
+  _speed: 1
+  _isRight: 0
+  _foeLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
