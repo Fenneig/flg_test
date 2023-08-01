@@ -115,10 +115,11 @@ MonoBehaviour:
     _onComplete:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8667326769225932192}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
+        - m_Target: {fileID: 6044044694858410392}
+          m_TargetAssemblyTypeName: TestGame.Scripts.Components.LightningComponent,
+            Assembly-CSharp
+          m_MethodName: DestroyLightning
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -1,4 +1,5 @@
 using Spine;
+using TestGame.Scripts.Components;
 using TestGame.Scripts.Interfaces;
 using TestGame.Scripts.Utils;
 using UnityEngine;
@@ -10,7 +11,7 @@ namespace TestGame.Scripts.Creatures
     {
         [Header("Gun"), Space] 
         [SerializeField] private Transform _barrelTransform;
-        [SerializeField] private LightningScaler _lightningPrefab;
+        [SerializeField] private LightningComponent _lightningPrefab;
 
         private RaycastHit2D[] _results = new RaycastHit2D[10];
         private GameObject _target;
