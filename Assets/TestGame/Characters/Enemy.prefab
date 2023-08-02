@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 694727448755709502}
   - component: {fileID: 694727448755709501}
   - component: {fileID: 694727448755709500}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,6 +196,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _attackZone: {fileID: 7997253978582602798}
+  _minSortingOrder: 60
+  _maxSortingOrder: 90
 --- !u!1 &6682942021491955171
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,7 +208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3376026249977627902}
   - component: {fileID: 7997253978582602798}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: AttackZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}

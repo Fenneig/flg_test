@@ -1,11 +1,13 @@
 ﻿using System;
+using TestGame.Scripts.Interfaces;
+using TestGame.Scripts.Model;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace TestGame.Scripts.Animations
 {
     [RequireComponent(typeof(SpriteRenderer))]
-    public class SpriteAnimation : MonoBehaviour
+    public class SpriteAnimation : MonoBehaviour, IPausable
     {
         [SerializeField] private int _frameRate;
         [SerializeField] private AnimationClip[] _clips;
@@ -15,7 +17,8 @@ namespace TestGame.Scripts.Animations
         private SpriteRenderer _renderer;
         private int _currentFrame;
         private int _currentClip;
-
+        private bool _isPaused; 
+        
         private void OnEnable()
         {
             _nextFrameTime = Time.time;
@@ -26,6 +29,7 @@ namespace TestGame.Scripts.Animations
             _renderer = GetComponent<SpriteRenderer>();
             _secondsPerFrame = 1f / _frameRate;
             StartAnimation();
+            GameSession.Instance.PauseHandler.Register(this);
         }
 
         private void StartAnimation()
@@ -36,7 +40,7 @@ namespace TestGame.Scripts.Animations
 
         private void Update()
         {
-            if (_nextFrameTime > Time.time) return;
+            if (_isPaused || _nextFrameTime > Time.time) return;
 
             var clip = _clips[_currentClip];
 
@@ -64,15 +68,14 @@ namespace TestGame.Scripts.Animations
             _currentFrame++;
         }
 
-        public void SetClip(string clipName)
+        public void SetPause(bool isPaused)
         {
-            for (var i = 0; i < _clips.Length; i++)
-            {
-                if (!_clips[i].IsEqualName(clipName)) continue;
-                _currentClip = i;
-                StartAnimation();
-                return;
-            }
+            _isPaused = isPaused;
+        }
+
+        private void OnDestroy()
+        {
+            GameSession.Instance.PauseHandler.Unregister(this);
         }
     }
 

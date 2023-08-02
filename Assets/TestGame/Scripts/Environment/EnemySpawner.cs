@@ -1,11 +1,13 @@
 ﻿using TestGame.Scripts.Creatures;
+using TestGame.Scripts.Interfaces;
+using TestGame.Scripts.Model;
 using TestGame.Scripts.Utils;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace TestGame.Scripts.Environment
 {
-    public class EnemySpawner : MonoBehaviour
+    public class EnemySpawner : MonoBehaviour, IPausable
     {
         [SerializeField] private Transform _playerTransform;
         [SerializeField] private Transform _finalPointTransform;
@@ -20,6 +22,7 @@ namespace TestGame.Scripts.Environment
         {
             _isActive = true;
             SpawnEnemy();
+            GameSession.Instance.PauseHandler.Register(this);
         }
 
         private void Update()
@@ -49,6 +52,17 @@ namespace TestGame.Scripts.Environment
             float newEnemyPositionZ = _playerTransform.position.z;
             Vector3 newEnemyPosition = new Vector3(newEnemyPositionX, newEnemyPositionY, newEnemyPositionZ);
             return newEnemyPosition;
+        }
+
+        public void SetPause(bool isPaused)
+        {
+            //TODO: По-хорошему нужно улучшить таймер чтобы он запоминал оставшееся время при паузе
+            _isActive = !isPaused;
+        }
+
+        private void OnDestroy()
+        {
+            GameSession.Instance.PauseHandler.Unregister(this);
         }
     }
 }

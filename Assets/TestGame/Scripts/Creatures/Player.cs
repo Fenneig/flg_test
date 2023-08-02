@@ -2,6 +2,7 @@ using Spine;
 using TestGame.Scripts.Audio;
 using TestGame.Scripts.Components;
 using TestGame.Scripts.Interfaces;
+using TestGame.Scripts.Model;
 using UnityEngine;
 using Event = Spine.Event;
 
@@ -49,12 +50,12 @@ namespace TestGame.Scripts.Creatures
 
         public override void Hit()
         {
-            Debug.Log("Lose");
+            GameSession.Instance.GameOver("Lose!");
         }
 
         public void Exit()
         {
-            Debug.Log("Finished!");
+            GameSession.Instance.GameOver("Win!");
         }
     }
 }

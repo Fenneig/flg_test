@@ -1,8 +1,5 @@
-﻿using System;
-using Spine;
-using TestGame.Scripts.Interfaces;
+﻿using TestGame.Scripts.Interfaces;
 using UnityEngine;
-using Event = Spine.Event;
 using Random = UnityEngine.Random;
 
 namespace TestGame.Scripts.Creatures
@@ -15,10 +12,6 @@ namespace TestGame.Scripts.Creatures
         [Header("Layer settings"), Space] 
         [SerializeField] private int _minSortingOrder = 60;
         [SerializeField] private int _maxSortingOrder = 90;
-        protected override void HandleAnimationState(TrackEntry trackentry, Event e)
-        {
-            Debug.Log($"Enemy animation get {e.Data.Name} state");
-        }
 
         protected override void Start()
         {
