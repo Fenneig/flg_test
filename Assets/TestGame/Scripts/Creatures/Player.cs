@@ -1,4 +1,5 @@
 using Spine;
+using TestGame.Scripts.Audio;
 using TestGame.Scripts.Components;
 using TestGame.Scripts.Interfaces;
 using UnityEngine;
@@ -11,6 +12,7 @@ namespace TestGame.Scripts.Creatures
         [Header("Gun"), Space] 
         [SerializeField] private Transform _barrelTransform;
         [SerializeField] private LightningComponent _lightningPrefab;
+        [SerializeField] private PlaySfxSound _sfxSound;
 
         private RaycastHit2D[] _results = new RaycastHit2D[10];
         private GameObject _target;
@@ -41,6 +43,7 @@ namespace TestGame.Scripts.Creatures
                 _target = _results[0].transform.gameObject;
                 _skeletonAnimation.AnimationState.SetAnimation(0, _attackAnimation, false);
                 _skeletonAnimation.AnimationState.AddAnimation(0, _runAnimation, true, 0);
+                _sfxSound.Play();
             }
         }
 
